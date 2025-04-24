@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hemant Baghel | Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #00ff88;
+      --secondary: #00b3ff;
+      --dark: #121212;
+      --darker: #0a0a0a;
+      --light: #f8f9fa;
+      --gray: #2d2d2d;
+      --nav-width: 250px;
+    }
+
+
+    body {
+      background-color: var(--dark);
+      color: var(--light);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Vertical Navbar */
+    .navbar {
+      width: var(--nav-width);
+      background-color: var(--darker);
+      padding: 2rem 1rem;
+      position: fixed;
+      height: 100vh;
+      border-right: 1px solid var(--gray);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--gray);
+    }
+
+    .nav-header h1 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      flex-grow: 1;
+    }
+
+    .nav-links li {
+      margin-bottom: 1rem;
+    }
+
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      display: block;
+      padding: 0.8rem 1rem;
+      border-radius: 5px;
+      font-size: 1.1rem;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      background-color: var(--gray);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .nav-links i {
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--gray);
+    }
+
+    .social-links a {
+      color: var(--light);
+      font-size: 1.2rem;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: var(--nav-width);
+      padding: 2rem;
+      width: calc(100% - var(--nav-width));
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+
+
+    .intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .intro p {
+      font-size: 1.2rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .tagline {
+      display: inline-block;
+      background-color: var(--gray);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background-color: var(--darker);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .section h2 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--gray);
+      font-size: 1.8rem;
+    }
+
+    .section p {
+      margin-bottom: 1rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-category {
+      background-color: var(--gray);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .skill-category h3 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .skill-category ul {
+      list-style-position: inside;
+    }
+
+    .skill-category li {
+      margin-bottom: 0.5rem;
+    }
+
+    .projects-list {
+      margin-top: 1.5rem;
+    }
+
+    .project-item {
+      background-color: var(--gray);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--secondary);
+    }
+
+    .project-item h3 {
+      color: var(--light);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info {
+      margin-top: 1.5rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-info i {
+      margin-right: 10px;
+      color: var(--primary);
+      width: 20px;
+    }
+
+    .contact-info a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid var(--gray);
+      }
+
+      .nav-header {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+
+      .nav-links li {
+        margin-bottom: 0;
+        margin-right: 1rem;
+      }
+
+      .social-links {
+        display: none;
+      }
+
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <!-- Vertical Navbar -->
+  <nav class="navbar">
+    <div class="nav-header">
+      <h1>HEMANT BAGHEL</h1>
+      <p>Cybersecurity Specialist</p>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#about" class="active"><i class="fas fa-user"></i> About</a></li>
+      <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+      <li><a href="#ug-coursework"><i class="fas fa-book"></i> UG Coursework</a></li>
+      <li><a href="#skills"><i class="fas fa-code"></i> Technical Skills</a></li>
+      <li><a href="#tools"><i class="fas fa-tools"></i> Tools & Tech</a></li>
+      <li><a href="#languages"><i class="fas fa-laptop-code"></i> Programming</a></li>
+      <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+
+    <div class="social-links">
+      <a href="https://github.com/hemantbaghel" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+      <img src="WhatsApp_Image_2025-04-06_at_22.17.35_cf53ed89-removebg-preview.png" alt="Hemant Baghel" class="profile-pic">
+      <div class="intro">
+        <h1>Hemant Baghel</h1>
+        <p>Cyber Security Student | Developer | Tech Enthusiast</p>
+        <span class="tagline">Securing the digital world one line of code at a time</span>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+      <h2><i class="fas fa-user"></i> About Me</h2>
+      <p>
+        I'm a passionate Cyber Security enthusiast pursuing B.Tech in Computer Science with specialization in Cyber Security at Lamrin Tech Skills University. My expertise spans across programming (C, Java, Python), database management, and machine learning with a focus on digital forensics, social media fraud detection, and data security.
+      </p>
+      <p>
+        Beyond academics, I'm a skilled boxer and actively contribute to open-source security innovations. My goal is to develop robust security solutions that protect digital assets while maintaining user privacy and system integrity.
+      </p>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+      <div class="project-item">
+        <h3>B.Tech in Computer Science (Cyber Security)</h3>
+        <p>Lamrin Tech Skills University | Expected Graduation: 2025</p>
+        <p>Specializing in cybersecurity fundamentals, ethical hacking, and digital forensics</p>
+      </div>
+    </section>
+
+    <!-- UG Coursework Section -->
+    <section class="section" id="ug-coursework">
+      <h2><i class="fas fa-book"></i> UG Coursework</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Core CS</h3>
+          <ul>
+            <li>Data Structures</li>
+            <li>Algorithms</li>
+            <li>Database Systems</li>
+            <li>Operating Systems</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Cyber Security</h3>
+          <ul>
+            <li>Ethical Hacking</li>
+            <li>Digital Forensics</li>
+            <li>Network Security</li>
+            <li>Cryptography</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Advanced Topics</h3>
+          <ul>
+            <li>Machine Learning</li>
+            <li>Cloud Security</li>
+            <li>Malware Analysis</li>
+            <li>Incident Response</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section class="section" id="skills">
+      <h2><i class="fas fa-code"></i> Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Security</h3>
+          <ul>
+            <li>Ethical Hacking</li>
+            <li>Penetration Testing</li>
+            <li>Vulnerability Assessment</li>
+            <li>SIEM Tools</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Development</h3>
+          <ul>
+            <li>Python</li>
+            <li>Java</li>
+            <li>C Programming</li>
+            <li>Web Development</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Systems</h3>
+          <ul>
+            <li>Linux Administration</li>
+            <li>Windows Security</li>
+            <li>Network Protocols</li>
+            <li>Firewall Configuration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools & Technology Section -->
+    <section class="section" id="tools">
+      <h2><i class="fas fa-tools"></i> Tools & Technologies</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Security Tools</h3>
+          <ul>
+            <li>Wireshark</li>
+            <li>Metasploit</li>
+            <li>Burp Suite</li>
+            <li>Nmap</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Development</h3>
+          <ul>
+            <li>Git/GitHub</li>
+            <li>VS Code</li>
+            <li>Docker</li>
+            <li>Jupyter Notebooks</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Frameworks</h3>
+          <ul>
+            <li>TensorFlow</li>
+            <li>Django</li>
+            <li>Flask</li>
+            <li>React</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programming Languages Section -->
+    <section class="section" id="languages">
+      <h2><i class="fas fa-laptop-code"></i> Programming Languages & Frameworks</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Languages</h3>
+          <ul>
+            <li>Python (Advanced)</li>
+            <li>Java (Intermediate)</li>
+            <li>C (Intermediate)</li>
+            <li>JavaScript</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Frameworks</h3>
+          <ul>
+            <li>Django</li>
+            <li>Flask</li>
+            <li>Spring Boot</li>
+            <li>React</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Libraries</h3>
+          <ul>
+            <li>Pandas</li>
+            <li>NumPy</li>
+            <li>Scikit-learn</li>
+            <li>Matplotlib</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+      <h2><i class="fas fa-project-diagram"></i> My Projects</h2>
+      <div class="projects-list">
+        <div class="project-item">
+          <h3>Signature Verification System</h3>
+          <p>Developed a machine learning-based system to detect forged signatures with 92% accuracy using Python and OpenCV. Implemented feature extraction techniques to analyze signature patterns.</p>
+        </div>
+        <div class="project-item">
+          <h3>Fake Social Media Profile Detector</h3>
+          <p>Created an algorithm to identify fraudulent social media accounts by analyzing profile patterns, posting behavior, and network connections. Reduced false positives by 30% compared to existing solutions.</p>
+        </div>
+        <div class="project-item">
+          <h3>E-commerce Static Webpages</h3>
+          <p>Designed and implemented responsive static webpages mimicking popular e-commerce sites using HTML5, CSS3, and JavaScript. Focused on UI/UX principles and mobile-first design.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+      <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:hemantbaghel061@gmail.com">hemantbaghel061@gmail.com</a></p>
+        <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/hemantbaghel" target="_blank">github.com/hemantbaghel</a></p>
+        <p><i class="fas fa-phone"></i> Phone: +91 [Your Phone Number]</p>
+        <p><i class="fas fa-map-marker-alt"></i> Location: Punjab, India</p>
+      </div>
+    </section>
+  </main>
+
+
+</body>
+</html>
