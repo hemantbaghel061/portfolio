@@ -1,0 +1,27 @@
+
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    align-items: center;
+  
+
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+
+}
